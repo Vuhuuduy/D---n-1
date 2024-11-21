@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LuxeWinter</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../Public/css/style.css" class="">
-    <link rel="stylesheet" href="../Public/css/news.css" class="">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Public/css/style.css" class="">
+    <link rel="stylesheet" href="Public/css/news.css" class="">
 </head>
 
 <body>
