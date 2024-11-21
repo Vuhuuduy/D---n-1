@@ -1,38 +1,49 @@
 <?php
 
 session_start();
+
 // Require file Common
 require_once './commons/env.php'; // Khai báo biến môi trường
 require_once './commons/function.php'; // Hàm hỗ trợ
-// Require toàn bộ file Controllers
-
-
-
-
 
 // Require toàn bộ file Views
 include_once 'view/header.php';
-include_once 'view/footer.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
 
-// Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
-
-// match ($act) {
-// };
-if (isset($_GET['act']) && ($_GET(['act']) != "")) {
-    switch ($_GET['pg']) {
-        case 'product':
-            if (isset($_GET['pg']) && ($_GET(['pg']) > 0)) {
-                $catalogname = " san pham ";
-            }
-            $title = " đang vô trang sản phẩm >>" . $catalogname;
+// Điều hướng
+if (isset($_GET['act']) && $_GET['act'] != "") {
+    switch ($_GET['act']) {
+        case 'news':
+            include_once 'view/news.php';
+            break;
+        case 'aoxuanhe':
+            include_once 'view/aoxuanhe.php';
+            break;
+        case 'chitietsanpham':
+            include_once 'view/chitietsp.php';
+            break;
+        case 'phukien':
+            include_once 'view/phukien.php';
+            break;
+        case 'quan':
+            include_once 'view/quan.php';
+            break;
+        case 'sanpham':
+            include_once 'view/sanpham.php';
+            break;
+        case 'giohang':
+            include_once 'view/giohang.php';
+            break;
+        case 'thongtinkhachhang':
+            include_once 'view/thongtinkhachhang.php';
             break;
         default:
             include_once 'view/home.php';
+            break;
     }
+} else {
+    include_once 'view/home.php';
 }
-// Require file Common
-require_once './commons/env.php'; // Khai báo biến môi trường
-require_once './commons/function.php'; // Hàm hỗ trợ
+include_once 'view/footer.php';
