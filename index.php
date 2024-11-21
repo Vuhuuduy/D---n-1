@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 // Require file Common
 require_once './commons/env.php'; // Khai báo biến môi trường
 require_once './commons/function.php'; // Hàm hỗ trợ
@@ -38,6 +36,12 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             break;
         case 'thongtinkhachhang':
             include_once 'view/thongtinkhachhang.php';
+            break;
+        case 'dangki':
+            include_once 'view/dangky.php';
+            break;
+        case 'dangnhap':
+            include_once 'view/dangnhap.php';
             break;
         default:
             include_once 'view/home.php';
