@@ -207,7 +207,7 @@
             <!-- Link to login -->
             <div class="text-center">
                 <p>
-                    Bạn đã có tài khoản? <a href="dangnhap.html">Đăng nhập tại đây</a>
+                    Bạn đã có tài khoản? <a href="dangnhap.php">Đăng nhập tại đây</a>
                 </p>
             </div>
         </form>
