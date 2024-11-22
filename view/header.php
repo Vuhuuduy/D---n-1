@@ -19,7 +19,7 @@
         <div class="navbar d-flex justify-content-between bg-light">
             <span class="me-3 row-2">📞 0363.361.798</span>
             <div class="m-2">
-                <a href="index.php?act=dangki" class="m-2 ms-3 text-decoration-none">
+                <a href="view/dangky.php" class="m-2 ms-3 text-decoration-none">
                     <i class="fas fa-user" style="font-size: 20px;"></i> Tài khoản
                 </a>
                 <a href="index.php?act=giohang" class="m-2 ms-3 text-decoration-none">
