@@ -215,7 +215,7 @@
             <!-- Link to register -->
             <div class="text-center">
                 <p>
-                    Bạn chưa có tài khoản? <a href="dangky.html">Đăng ký Tại đây</a>
+                    Bạn chưa có tài khoản? <a href="dangky.php">Đăng ký Tại đây</a>
                 </p>
             </div>
         </form>
