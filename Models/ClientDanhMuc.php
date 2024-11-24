@@ -1,5 +1,5 @@
 <?php
-class ClientSanPham
+class ClientDanhMuc
 {
     public $conn;
 
@@ -7,13 +7,10 @@ class ClientSanPham
     {
         $this->conn = connectDB();
     }
-
-    // tìm kiếm get all sản phẩm 
-    public function getAllSanPham()
+    public function getAllDanhMuc()
     {
         try {
-            $sql = "SELECT san_phams.*, danh_mucs.ten_danh_muc FROM san_phams
-            INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id";
+            $sql = "SELECT * FROM danh_mucs";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
 
