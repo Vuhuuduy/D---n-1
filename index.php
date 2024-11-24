@@ -12,6 +12,8 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 
 // Controller
 require_once './Controllers/ClientSanPhamController.php'; // Hàm hỗ trợ
+require_once './Controllers/TrangChuController.php'; // Hàm hỗ trợ
+
 
 // model 
 require_once './Models/ClientDanhMuc.php'; // Hàm hỗ trợ
@@ -23,7 +25,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Trang chủ
     // router danh muc
-    '/' => (new ClientBaoCaoThongKeController())->home(),
+    '/' => (new TrangChuController())->home(),
     "danh-muc-mi-pham" => (new ClientDanhMucController())->danhSachDanhMuc(),
     "form-them-danh-muc" => (new ClientDanhMucController())->formAddDanhMuc(),
     "them-danh-muc" => (new ClientDanhMucController())->postAddDanhMuc(),
