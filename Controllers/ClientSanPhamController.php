@@ -1,5 +1,5 @@
 <?php
-class AdminSanPhamController
+class ClientSanPhamController
 {
     public $modelSanPham;
     public $modelDanhMuc;
@@ -11,6 +11,6 @@ class AdminSanPhamController
     public function danhSachSanPham()
     {
         $listSanPham = $this->modelSanPham->getAllSanPham();
-        require_once "./views/sanpham/listSanPham.php";
+        require_once "./view/sanpham/ListSanPham.php";
     }
 }
