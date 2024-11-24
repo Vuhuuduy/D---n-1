@@ -1,3 +1,7 @@
+<!-- header -->
+<?php
+include "./view/layout/header.php";
+?>
 <!-- Main sản phẩm  -->
 <main>
     <!-- backgorud  -->
@@ -18,61 +22,24 @@
         setInterval(updateTime, 1000); // Cập nhật mỗi giây
         updateTime(); // Gọi ngay lập tức để hiển thị thời gian ban đầu
     </script>
+
     <div class="container">
-        <!-- Row 1 -->
         <div class="row mb-4">
-            <div class="col-md-3 text-center">
-                <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                    class="img-fluid" alt="Sản phẩm 1">
-                <h5 class="mt-2">Tên sản phẩm 1</h5>
-                <p>Giá: 100.000đ</p>
-            </div>
-            <div class="col-md-3 text-center">
-                <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                    class="img-fluid" alt="Sản phẩm 2">
-                <h5 class="mt-2">Tên sản phẩm 2</h5>
-                <p>Giá: 150.000đ</p>
-            </div>
-            <div class="col-md-3 text-center">
-                <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                    class="img-fluid" alt="Sản phẩm 3">
-                <h5 class="mt-2">Tên sản phẩm 3</h5>
-                <p>Giá: 200.000đ</p>
-            </div>
-            <div class="col-md-3 text-center">
-                <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                    class="img-fluid" alt="Sản phẩm 4">
-                <h5 class="mt-2">Tên sản phẩm 4</h5>
-                <p>Giá: 250.000đ</p>
-            </div>
-        </div>
+            <?php
+            $soSanPhamTrenHang = 4; // Số sản phẩm trên một hàng
+            $i = 0; // Khởi tạo biến đếm
+            foreach ($listSanPham as $sp): ?>
+                <div class="col-md-3 text-center">
+                    <img src="<?= $sp['hinh_anh'] ?? 'default.jpg' ?>" class="img-fluid" alt="<?= $sp['ten_san_pham'] ?? 'Không có tên' ?>">
+                    <h5 class="mt-2"><?= $sp['ten_san_pham'] ?? 'Tên không có' ?></h5>
+                    <p>Giá: <?= number_format($sp['gia_san_pham'] ?? 0, 0, ',', '.') ?>đ</p>
+                </div>
+            <?php endforeach; ?>
+            <!-- Pagination -->
 
-        <!-- Row 2 -->
-        <div class="row">
-            <div class="col-md-3 text-center">
-                <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                    class="img-fluid" alt="Sản phẩm 1">
-                <h5 class="mt-2">Tên sản phẩm 1</h5>
-                <p>Giá: 100.000đ</p>
-            </div>
-            <div class="col-md-3 text-center">
-                <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                    class="img-fluid" alt="Sản phẩm 2">
-                <h5 class="mt-2">Tên sản phẩm 2</h5>
-                <p>Giá: 150.000đ</p>
-            </div>
-            <div class="col-md-3 text-center">
-                <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                    class="img-fluid" alt="Sản phẩm 3">
-                <h5 class="mt-2">Tên sản phẩm 3</h5>
-                <p>Giá: 200.000đ</p>
-            </div>
-            <div class="col-md-3 text-center">
-                <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                    class="img-fluid" alt="Sản phẩm 4">
-                <h5 class="mt-2">Tên sản phẩm 4</h5>
-                <p>Giá: 250.000đ</p>
-            </div>
         </div>
-
+    </div>
 </main>
+<?php
+include "./view/layout/footer.php";
+?>
