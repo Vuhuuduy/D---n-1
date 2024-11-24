@@ -1,6 +1,6 @@
 <!-- header -->
 <?php
-// include "./view/layout/header.php"
+include "./view/layout/header.php";
 ?>
 <!-- Main sản phẩm  -->
 <main>

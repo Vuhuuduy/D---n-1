@@ -3,18 +3,12 @@ session_start();
 // Require file Common
 require_once './commons/env.php'; // Khai báo biến môi trường
 require_once './commons/function.php'; // Hàm hỗ trợ
-
-// Require toàn bộ file Views
-include_once 'view/header.php';
-
 // controller 
 // Kiểm tra file Controllers/ClientDanhMucController.php
 // Require file Common
 require_once './commons/env.php'; // Khai báo biến môi trường
 require_once './commons/function.php'; // Hàm hỗ trợ
 
-// Require toàn bộ file Views
-include_once 'view/header.php';
 
 // Controller
 require_once './Controllers/ClientSanPhamController.php'; // Hàm hỗ trợ
@@ -124,4 +118,3 @@ match ($act) {
 // } else {
 //     include_once 'view/sanpham/ListSanPham.php';
 // }
-// include_once 'view/footer.php';
