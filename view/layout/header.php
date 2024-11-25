@@ -40,8 +40,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav d-flex mx-auto">
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=home">Trang chủ</a></li>
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=sanpham">Áo thu đông</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?">Trang chủ</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=san-pham">Áo thu đông</a></li>
                         <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=aoxuanhe">Áo xuân hè</a></li>
                         <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=quan">Quần</a></li>
                         <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=phukien">Phụ kiện</a></li>

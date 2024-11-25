@@ -1,6 +1,8 @@
 <!-- header -->
 <?php
 include "./view/layout/header.php";
+
+// Đảm bảo $modelSanPham là đối tượng của ClientSanPham
 ?>
 
 <?php
@@ -12,13 +14,28 @@ if (!empty($listSanPham)):
             <a href="index.php?act=home" class="d-flex align-items-center ms-2">
                 <i class="fas fa-home"></i> Trang chủ |
             </a>
-            <a href="index.php?act=sanpham" class="d-flex align-items-center ms-2">
-                <span>Áo thu đông</span>
-            </a>
+            <?php if (isset($danh_muc_id)): ?>
+                <a href="?act=san-pham&page=<?= $page - 1 ?>&danh_muc_id=36" aria-label="Previous">
+
+                    <span>Áo Thu Đông</span>
+                </a>
+            <?php else: ?>
+                <a href="index.php?act=san-pham" class="d-flex align-items-center ms-2">
+                    <span>Tất cả sản phẩm</span>
+                </a>
+            <?php endif; ?>
         </div>
 
         <div class="container mt-1 d-flex justify-content-between align-items-center">
-            <h4>Áo Thu Đông</h4>
+            <h4>
+                <?php
+                if (isset($danh_muc_name)) {
+                    echo $danh_muc_name; // Tiêu đề theo danh mục
+                } else {
+                    echo "Tất Cả Sản Phẩm"; // Tiêu đề khi không có danh mục
+                }
+                ?>
+            </h4>
             <form action="index.php?act=san-pham" method="get" class="d-flex">
                 <div class="col-md-4">
                     <label for="category" class="form-label"></label>
@@ -27,11 +44,11 @@ if (!empty($listSanPham)):
                             Giá Sản Phẩm
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
-                            <li><a class="dropdown-item" href="?act=san-pham&gia_min=0&gia_max=100000">Tất Cả</a></li>
-                            <li><a class="dropdown-item" href="?act=san-pham&gia_min=1&gia_max=100000">Dưới 100k</a></li>
-                            <li><a class="dropdown-item" href="?act=san-pham&gia_min=100000&gia_max=200000">Từ 100k đến 200k</a></li>
-                            <li><a class="dropdown-item" href="?act=san-pham&gia_min=200000&gia_max=300000">Từ 200k đến 300k</a></li>
-                            <li><a class="dropdown-item" href="?act=san-pham&gia_min=300000&gia_max=1000000">Từ 300k đến 1M</a></li>
+                            <li><a class="dropdown-item" href="?act=san-pham&danh_muc_id=36&gia_min=0&gia_max=1000000">Tất Cả</a></li>
+                            <li><a class="dropdown-item" href="?act=san-pham&danh_muc_id=36&gia_min=1&gia_max=100000">Dưới 100k</a></li>
+                            <li><a class="dropdown-item" href="?act=san-pham&danh_muc_id=36&gia_min=100000&gia_max=200000">Từ 100k đến 200k</a></li>
+                            <li><a class="dropdown-item" href="?act=san-pham&danh_muc_id=36&gia_min=200000&gia_max=300000">Từ 200k đến 300k</a></li>
+                            <li><a class="dropdown-item" href="?act=san-pham&danh_muc_id=36&gia_min=300000&gia_max=1000000">Từ 300k đến 1M</a></li>
                         </ul>
                     </div>
                 </div>
@@ -53,7 +70,7 @@ if (!empty($listSanPham)):
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item <?= ($page == 1) ? 'disabled' : '' ?>">
-                        <a class="page-link" href="?act=san-pham&page=<?= $page - 1 ?>" aria-label="Previous">
+                        <a class="page-link" href="?act=san-pham&page=<?= $page - 1 ?>&danh_muc_id=36" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -61,12 +78,12 @@ if (!empty($listSanPham)):
                     <!-- Pagination links -->
                     <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                         <li class="page-item <?= ($i == $page) ? 'active' : '' ?>">
-                            <a class="page-link" href="?act=san-pham&page=<?= $i ?>"><?= $i ?></a>
+                            <a class="page-link" href="?act=san-pham&page=<?= $i ?>&danh_muc_id=36"><?= $i ?></a>
                         </li>
                     <?php endfor; ?>
 
                     <li class="page-item <?= ($page == $totalPages) ? 'disabled' : '' ?>">
-                        <a class="page-link" href="?act=san-pham&page=<?= $page + 1 ?>" aria-label="Next">
+                        <a class="page-link" href="?act=san-pham&page=<?= $page + 1 ?>&danh_muc_id=36" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
@@ -74,6 +91,7 @@ if (!empty($listSanPham)):
             </nav>
         </div>
     </main>
+
 <?php else: ?>
     <p>Không có sản phẩm nào.</p>
 <?php endif; ?>
