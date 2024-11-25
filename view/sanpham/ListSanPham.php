@@ -15,13 +15,16 @@
                         <?php
                         switch ($danh_muc_id) {
                             case 36:
-                                echo "Áo Xuân Hè";
+                                echo "Áo Thu Đông";
                                 break;
                             case 37:
-                                echo "Quần";
+                                echo "Áo Xuân Hè";
                                 break;
                             case 38:
-                                echo "Phụ Kiện";
+                                echo "Quần";
+                                break;
+                            case 39:
+                                echo "Phụ Kiện ";
                                 break;
                             default:
                                 echo "Danh mục không xác định";
@@ -44,11 +47,11 @@
             </h4>
 
             <!-- Nút lựa chọn danh mục -->
-            <div class="d-inline">
+            <!-- <div class="d-inline">
                 <a href="index.php?act=san-pham&danh_muc_id=36" class="btn btn-outline-primary ms-3">Áo Xuân Hè</a>
                 <a href="index.php?act=san-pham&danh_muc_id=37" class="btn btn-outline-primary ms-3">Quần</a>
                 <a href="index.php?act=san-pham&danh_muc_id=38" class="btn btn-outline-primary ms-3">Phụ Kiện</a>
-            </div>
+            </div> -->
 
             <!-- Dropdown lọc giá -->
             <div class="dropdown d-inline">

@@ -108,4 +108,27 @@ class ClientSanPham
         $stmt->execute();
         return $stmt->fetchColumn(); // Sử dụng fetchColumn() để lấy giá trị đếm
     }
+    public function searchSanPham($keyword, $limit, $offset)
+    {
+        try {
+            $sql = "SELECT san_phams.*, danh_mucs.ten_danh_muc 
+                FROM san_phams 
+                INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id
+                WHERE san_phams.trang_thai = 1
+                AND san_phams.ten_san_pham LIKE :keyword
+                LIMIT :limit OFFSET :offset";
+
+            $stmt = $this->conn->prepare($sql);
+            $keyword = "%" . $keyword . "%";
+            $stmt->bindParam(':keyword', $keyword, PDO::PARAM_STR);
+            $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+        } catch (PDOException $e) {
+            error_log("Lỗi tìm kiếm sản phẩm: " . $e->getMessage());
+            return [];
+        }
+    }
 }

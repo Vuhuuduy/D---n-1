@@ -41,22 +41,24 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav d-flex mx-auto">
                         <li class="nav-item mg-l"><a class="nav-link" href="index.php?">Trang chủ</a></li>
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=san-pham">Áo thu đông</a></li>
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=aoxuanhe">Áo xuân hè</a></li>
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=quan">Quần</a></li>
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=phukien">Phụ kiện</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=san-pham&danh_muc_id=36">Áo thu đông</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=san-pham&danh_muc_id=37">Áo xuân hè</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=san-pham&danh_muc_id=38">Quần</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=san-pham&danh_muc_id=39">Phụ kiện</a></li>
                         <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=thongtinkhachhang">Thông tin</a></li>
+
                     </ul>
                 </div>
 
                 <!-- Icons on the right -->
                 <div>
-                    <form class="d-flex">
-                        <div class="input-group">
-                            <span class="input-group-text"><a href="#"> <i class="fas fa-search "></i></a></span>
-                            <input class="form-control" type="search" placeholder="Tìm kiếm ..." aria-label="Search">
-                        </div>
+                    <form action="index.php" method="GET" class="d-flex mb-2 mt-2">
+                        <input type="hidden" name="act" value="san-pham">
+                        <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm..."
+                            value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>">
+                        <button type="submit" class="btn btn-primary ms-3 wt">Tìm kiếm</button>
                     </form>
+
                 </div>
             </div>
         </nav>
