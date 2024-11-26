@@ -44,4 +44,26 @@ class ClientSanPhamController
         // Truyền dữ liệu vào view
         require_once "./view/sanpham/ListSanPham.php";
     }
+    function chiTietSanPham()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+            // Gọi model để lấy dữ liệu chi tiết sản phẩm
+            $sanPham = $this->modelSanPham->getChiTietSanPham($id);
+            if ($sanPham) {
+                // Gọi view để hiển thị chi tiết sản phẩm
+                include "./view/sanpham/ChiTietSanPham.php";
+            } else {
+                // Chuyển hướng về trang sản phẩm nếu không tìm thấy
+                header("Location: index.php?act=san-pham");
+                exit;
+            }
+        } else {
+            // Nếu không có id, chuyển hướng về trang sản phẩm
+            header("Location: index.php?act=san-pham");
+            echo " không có ";
+            exit;
+        }
+    }
 }

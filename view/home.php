@@ -26,19 +26,26 @@ include "./view/layout/header.php";
     <div class="container">
         <div class="row mb-4">
             <?php
-            $soSanPhamTrenHang = 4; // Số sản phẩm trên một hàng
-            $i = 0; // Khởi tạo biến đếm
-            foreach ($listSanPham as $sp): ?>
+            $i = 0; // Khởi tạo biến đếm sản phẩm
+            foreach ($listSanPham as $sp):
+                if ($i > 0 && $i % 4 == 0): // Nếu đã hiển thị 4 sản phẩm, đóng hàng cũ và mở hàng mới
+                    echo '</div><div class="row mb-4">';
+                endif;
+            ?>
                 <div class="col-md-3 text-center">
-                    <img src="<?= $sp['hinh_anh'] ?? 'default.jpg' ?>" class="img-fluid" alt="<?= $sp['ten_san_pham'] ?? 'Không có tên' ?>">
-                    <h5 class="mt-2"><?= $sp['ten_san_pham'] ?? 'Tên không có' ?></h5>
-                    <p>Giá: <?= number_format($sp['gia_san_pham'] ?? 0, 0, ',', '.') ?>đ</p>
+                    <a href="index.php?act=chi-tiet-san-pham&id=<?= $sp['id'] ?>" class="text-decoration-none">
+                        <img src="<?= !empty($sp['hinh_anh']) ? 'http://localhost/Du_an_1/Du_an1/' . $sp['hinh_anh'] : 'img/default.jpg' ?>" alt="Ảnh sản phẩm" class="img-fluid">
+                        <h5 class="mt-2"><?= $sp['ten_san_pham'] ?? 'Tên không có' ?></h5>
+                        <p>Giá: <?= number_format($sp['gia_san_pham'] ?? 0, 0, ',', '.') ?>đ</p>
+                    </a>
                 </div>
-            <?php endforeach; ?>
-            <!-- Pagination -->
-
+            <?php
+                $i++; // Tăng biến đếm
+            endforeach;
+            ?>
         </div>
     </div>
+
 </main>
 <?php
 include "./view/layout/footer.php";

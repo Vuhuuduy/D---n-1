@@ -5,7 +5,7 @@
     <main>
         <!-- Thanh điều hướng -->
         <div class="btn btn-link d-flex align-items-center">
-            <a href="index.php?act=home" class="d-flex align-items-center ms-2">
+            <a href="index.php?act=/" class="d-flex align-items-center ms-2">
                 <i class="fas fa-home"></i> Trang chủ |
             </a>
 
@@ -71,13 +71,14 @@
 
         <!-- Danh sách sản phẩm -->
         <div class="container">
-            <div class="row mb-4">
+            <div class="row mb-4 borderbl">
                 <?php foreach ($listSanPham as $sp): ?>
-                    <div class="col-md-3 text-center">
-                        <img src="<?= $sp['hinh_anh'] ?? 'default.jpg' ?>" class="img-fluid"
-                            alt="<?= $sp['ten_san_pham'] ?? 'Không có tên' ?>">
-                        <h5 class="mt-2"><?= $sp['ten_san_pham'] ?? 'Tên không có' ?></h5>
-                        <p>Giá: <?= number_format($sp['gia_san_pham'] ?? 0, 0, ',', '.') ?>đ</p>
+                    <div class="col-md-3 text-center product-item">
+                        <a href="index.php?act=chi-tiet-san-pham&id=<?= $sp['id'] ?>" class="text-decoration-none">
+                            <img src="<?= !empty($sp['hinh_anh']) ? 'http://localhost/Du_an_1/Du_an1/' . $sp['hinh_anh'] : 'img/default.jpg' ?>" alt="Ảnh sản phẩm" class="img-fluid">
+                            <h5 class="mt-2 product-name"><?= $sp['ten_san_pham'] ?? 'Tên không có' ?></h5>
+                            <p class="product-price">Giá: <?= number_format($sp['gia_san_pham'] ?? 0, 0, ',', '.') ?>đ</p>
+                        </a>
                     </div>
                 <?php endforeach; ?>
             </div>

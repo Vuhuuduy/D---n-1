@@ -61,8 +61,58 @@ a {
     padding: 50px;
 }
 
-.hover:hover {
-    background-color: #007bff;
-    /* Thay đổi thành màu bạn muốn */
+.red-color {
+    background-color: #522c5d;
+}
+
+.green-color {
+    background-color: #845162;
+}
+
+.blue-color {
+    background-color: #F1916d;
+}
+
+.color {
+    width: 60px;
+    height: 40px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.color:hover {
+    border-color: #000;
+    /* Hiệu ứng khi hover */
+}
+
+.size-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.size-table th,
+.size-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.size-table thead {
+    background-color: #343a40;
     color: white;
+}
+
+.size-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.size-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.size-table th {
+    font-weight: bold;
+    text-transform: uppercase;
 }

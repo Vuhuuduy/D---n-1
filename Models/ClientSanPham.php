@@ -131,4 +131,12 @@ class ClientSanPham
             return [];
         }
     }
+    public function getChiTietSanPham($id)
+    {
+        $sql = "SELECT * FROM san_phams WHERE id = :id";
+        $stmt = $this->conn->prepare($sql); // Dùng $this->conn thay vì global $conn
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC); // Trả về dữ liệu dạng mảng
+    }
 }

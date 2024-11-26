@@ -41,7 +41,7 @@ match ($act) {
     "sua-san-pham" => (new ClientSanPhamController())->postEditSanPham(),
     "form-xoa-san-pham" => (new ClientSanPhamController())->deleteSanPham(),
     "sua-album-anh-san-pham" => (new ClientSanPhamController())->postEditAnhSanPham(),
-    "chi-tiet-san-pham" => (new ClientSanPhamController())->detailSanPham(),
+    "chi-tiet-san-pham" => (new ClientSanPhamController())->chiTietSanPham(),
 
     // r;outer don hang
 
@@ -49,7 +49,7 @@ match ($act) {
     "form-sua-don-hang" => (new ClientDonHangController())->formEditDonHang(),
     "sua-don-hang" => (new ClientDonHangController())->postEditDonHang(),
     // "xoa-don-hang" => (new ClientDonHangController())->deleteDonHang(),
-    "chi-tiet-don-hang" => (new ClientDonHangController())->detailDonHang(),
+    "chi-tiet-don-hang" => (new ClientSanPhamController())->detailDonHang(),
 
 
     //  router tai khoan quan tri
