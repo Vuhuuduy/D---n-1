@@ -26,51 +26,22 @@ require_once './models/DonHang.php';
 $act = $_GET['act'] ?? '/';
 // điều hướng 2 
 match ($act) {
-    // Trang chủ
-    // router danh muc
+    
     '/' => (new HomeController())->home(),
-    // "danh-muc-san-pham" => (new ClientDanhMucController())->danhSachDanhMuc(),
-    // "form-them-danh-muc" => (new ClientDanhMucController())->formAddDanhMuc(),
-    // "them-danh-muc" => (new ClientDanhMucController())->postAddDanhMuc(),
-    // "form-sua-danh-muc" => (new ClientDanhMucController())->formEditDanhMuc(),
-    // "sua-danh-muc" => (new ClientDanhMucController())->postEditDanhMuc(),
-    // "form-xoa-danh-muc" => (new ClientDanhMucController())->deleteDanhMuc(),
-    // // router san pham
-
-    "san-pham" => (new SanPhamController())->danhSachSanPham(),
-    // "form-them-san-pham" => (new SanPhamController())->formAddSanPham(),
-    // "them-san-pham" => (new SanPhamController())->postAddSanPham(),
-    // "form-sua-san-pham" => (new SanPhamController())->formEditSanPham(),
-    // "sua-san-pham" => (new SanPhamController())->postEditSanPham(),
-    // "form-xoa-san-pham" => (new SanPhamController())->deleteSanPham(),
-    // "sua-album-anh-san-pham" => (new SanPhamController())->postEditAnhSanPham(),
-    // "chi-tiet-san-pham" => (new SanPhamController())->detailSanPham(),
-
-    // r;outer don hang
-
-    // "don-hang" => (new ClientDonHangController())->danhSachDonHang(),
-    // "form-sua-don-hang" => (new ClientDonHangController())->formEditDonHang(),
-    // "sua-don-hang" => (new ClientDonHangController())->postEditDonHang(),
-    // // "xoa-don-hang" => (new ClientDonHangController())->deleteDonHang(),
-    // "chi-tiet-don-hang" => (new ClientDonHangController())->detailDonHang(),
+    // Trang chủ
+    'chi-tiet-san-pham'=> (new HomeController())->chitietSanPham(),
+    'lien-he' =>(new HomeController())->lienHe(),
+   'gioi-thieu' =>(new HomeController())->gioiThieu(),
+    'search' => (new HomeController())->timKiem(),
 
 
-    //  router tai khoan quan tri
-    // 'list-tai-khoan-quan-tri' => (new ClientTaiKhoanController())->danhSachQuanTri(),
-    // 'form-them-quan-tri' => (new ClientTaiKhoanController())->formAddQuanTri(),
-    // 'them-quan-tri' => (new ClientTaiKhoanController())->postAddQuanTri(),
-    // 'form-sua-quan-tri' => (new ClientTaiKhoanController())->formEditQuanTri(),
-    // 'sua-quan-tri' => (new ClientTaiKhoanController())->postEditQuanTri(),
-    // 'reset-pass' => (new ClientTaiKhoanController())->resetPassword(),
-
-    //  router tai khoan khách hang
-    // 'list-tai-khoan-khach-hang' => (new ClientTaiKhoanController())->danhSachKhachHang(),
-    // 'form-sua-khach-hang' => (new ClientTaiKhoanController())->formEditKhachHang(),
-    // 'sua-khach-hang' => (new ClientTaiKhoanController())->postEditKhachHang(),
-    // 'chi-tiet-khach-hang' => (new ClientTaiKhoanController())->detailKhachHang(),
-    // 'sua-anh-tai-khoan' => (new ClientTaiKhoanController)->suaAnhTaiKhoanClient(),
-    // 'sua-thong-tin-ca-nhan-quan-tri' => (new ClientTaiKhoanController)->postEditCaNhanQuanTri(),
-    // 'sua-mat-khau-ca-nhan-quan-tri' => (new ClientTaiKhoanController)->postEditMatKhauCaNhan(),
+    // Giỏ hàng ,đơn hàng
+    'them-gio-hang' => (new GioHangDonHangController())->addGioHang(),
+    'gio-hang' => (new GioHangDonHangController())->gioHang(),
+    'thanh-toan' => (new GioHangDonHangController())->thanhToan(),
+    'xu-ly-thanh-toan' => (new GioHangDonHangController())->postThanhToan(),
+    'xoa-san-pham-gio-hang' => (new GioHangDonHangController())->xoaSp(),
+    'da-dat-hang' => (new HomeController())->daDatHang(),
 
     //authe
     'login' => (new HomeController())->formLogin(),
@@ -85,9 +56,7 @@ match ($act) {
     'tai-khoan' => (new HomeController())->taiKhoan(),
     'sua-mat-khau-ca-nhan' => (new HomeController())->postEditMatKhauCaNhan(),
 
-    // router quản lý tài khoản  cá nhân(quản trị)
-    // 'form-sua-thong-tin-ca-nhan-quan-tri' => (new ClientTaiKhoanController())->formEditCaNhanQuanTri(),
-    // 'sua-thong-tin-ca-nhan-quan-tri' => (new ClientTaiKhoanController())->postEditCaNhanQuanTri(),
-
-    // 'sua-mat-khau-ca-nhan-quan-tri' => (new ClientTaiKhoanController())->postEditMatKhauCaNhan(),
+    //sanpham
+    // "san-pham" => (new HomeController())->danhSachSanPham(),
+    'san-pham-theo-danh-muc' =>(new HomeController())->sanPhamDanhMuc(),
 };

@@ -1,7 +1,6 @@
 <!-- header -->
-<?php
-include "./view/layout/header.php";
-?>
+<?php require_once 'layout/header.php'; ?>
+<?php require_once 'layout/menu.php'; ?>
 <!-- Main sản phẩm  -->
 <main>
     <!-- backgorud  -->
@@ -40,6 +39,5 @@ include "./view/layout/header.php";
         </div>
     </div>
 </main>
-<?php
-include "./view/layout/footer.php";
-?>
+
+<?php require_once 'layout/footer.php'; ?>
