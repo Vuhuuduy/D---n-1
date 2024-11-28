@@ -18,14 +18,57 @@
     <header>
         <div class="navbar d-flex justify-content-between bg-light">
             <span class="me-3 row-2">📞 0363.361.798</span>
-            <div class="m-2">
-                <a href="view/dangky.php" class="m-2 ms-3 text-decoration-none">
-                    <i class="fas fa-user" style="font-size: 20px;"></i> Tài khoản
-                </a>
-                <a href="index.php?act=giohang" class="m-2 ms-3 text-decoration-none">
-                    <i class="fas fa-shopping-cart" style="font-size: 20px;"></i> Giỏ hàng
-                </a>
-            </div>
+            <div class="col-lg-4">
+                          <div class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
+                              <div class="header-search-container">
+                                  <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
+                                  <form class="header-search-box d-lg-none d-xl-block" action="<?= BASE_URL . '?act=search' ?>" method="POST">
+                                      
+                                      <button class="header-search-btn" type="submit"><i class="pe-7s-search"></i></button>
+                                  </form>
+                              </div>
+                              <div class="header-configure-area">
+
+                                  <ul class="nav justify-content-end">
+
+                                      <li class="user-hover">
+                                          <a href="#">
+
+                                              <i class="pe-7s-user"></i>
+                                          </a>
+                                          <ul class="dropdown-list " style="width: 230px;">
+
+                                              <?php if (isset($_SESSION['user_client'])) { ?>
+                                                  <li>
+                                                      <label for="">
+                                                          <?php if (isset($_SESSION['user_client'])): ?>
+                                                              <a href="<?= BASE_URL . '?act=tai-khoan' ?>">
+                                                                  <?= $_SESSION['user_client']; ?>
+                                                              </a>
+                                                          <?php endif; ?>
+                                                      </label>
+                                                  </li>
+
+                                                  <li><a href="<?= BASE_URL . '?act=logout' ?>">Đăng xuất</a></li>
+                                                  <li><a href="<?= BASE_URL_ADMIN ?>">Đăng Nhập Admin</a></li>
+                                              <?php } else { ?>
+                                                  <li><a href="<?= BASE_URL ?>?act=login">Đăng nhập</a></li>
+                                                  <li><a href="<?= BASE_URL . '?act=form-dang-ky' ?>">Đăng ký</a></li>
+                                              <?php } ?>
+
+                                          </ul>
+                                      </li>
+
+                                      <li>
+                                          <a href="#" class="minicart-btn">
+                                              <i class="pe-7s-shopbag"></i>
+                                              <div class="notification">2</div>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
         </div>
         <!-- nav -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -40,12 +83,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav d-flex mx-auto">
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?">Trang chủ</a></li>
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=san-pham&danh_muc_id=36">Áo thu đông</a></li>
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=san-pham&danh_muc_id=37">Áo xuân hè</a></li>
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=san-pham&danh_muc_id=38">Quần</a></li>
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=san-pham&danh_muc_id=39">Phụ kiện</a></li>
-                        <li class="nav-item mg-l"><a class="nav-link" href="index.php?act=thongtinkhachhang">Thông tin</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="<?= BASE_URL ?>">Trang chủ</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="<?= BASE_URL . '?act=ao_thu_dong' ?>">Áo thu đông</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="<?= BASE_URL . '?act=ao_xuan_he' ?>">Áo xuân hè</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="<?= BASE_URL . '?act=quan' ?>">Quần</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="<?= BASE_URL . '?act=phu_kien' ?>">Phụ kiện</a></li>
+                        <li class="nav-item mg-l"><a class="nav-link" href="<?= BASE_URL . '?act=thong_tin' ?>">Thông tin</a></li>
 
                     </ul>
                 </div>
