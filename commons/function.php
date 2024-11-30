@@ -98,7 +98,7 @@ function formatDate($date)
 function checkLoginAdmin()
 {
     if (!isset($_SESSION['user_admin'])) {
-        require_once './view/auth/formLogin.php';
+        require_once './views/auth/formLogin.php';
         exit();
     }
 }

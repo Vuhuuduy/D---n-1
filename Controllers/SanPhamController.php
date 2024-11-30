@@ -10,18 +10,18 @@ class SanPhamController
 
     public function danhSachSanPham()
     {
-        // // Lấy trang hiện tại từ URL, mặc định là trang 1
-        // $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        // $limit = 12; // Số sản phẩm trên mỗi trang
-        // $offset = ($page - 1) * $limit;
+        // Lấy trang hiện tại từ URL, mặc định là trang 1
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $limit = 12; // Số sản phẩm trên mỗi trang
+        $offset = ($page - 1) * $limit;
 
-        // // Kiểm tra lọc giá từ URL
-        // $gia_min = isset($_GET['gia_min']) ? $_GET['gia_min'] : null;
-        // $gia_max = isset($_GET['gia_max']) ? $_GET['gia_max'] : null;
-        // $danh_muc_id = isset($_GET['danh_muc_id']) ? $_GET['danh_muc_id'] : null;
-        // $keyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : null; // Lấy từ khóa tìm kiếm
+        // Kiểm tra lọc giá từ URL
+        $gia_min = isset($_GET['gia_min']) ? $_GET['gia_min'] : null;
+        $gia_max = isset($_GET['gia_max']) ? $_GET['gia_max'] : null;
+        $danh_muc_id = isset($_GET['danh_muc_id']) ? $_GET['danh_muc_id'] : null;
+        $keyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : null; // Lấy từ khóa tìm kiếm
 
-        // // Nếu có từ khóa tìm kiếm
+        // Nếu có từ khóa tìm kiếm
         // if ($keyword) {
         //     $listSanPham = $this->modelSanPham->searchSanPham($keyword, $limit, $offset);
         //     $totalProducts = count($listSanPham); // Tổng số sản phẩm từ kết quả tìm kiếm

@@ -48,8 +48,8 @@
                                 <address class="contact-block">
                                     <ul>
                                         <li><i class="pe-7s-home"></i> Trịnh Văn Bô,Hà Nội</li>
-                                        <li><i class="pe-7s-mail"></i> <a href="mailto:demo@plazathemes.com">miphamnbh@gmail.com </a></li>
-                                        <li><i class="pe-7s-call"></i> <a href="tel:+855831662">+855831662</a></li>
+                                        <li><i class="pe-7s-mail"></i> <a href="duyvhph52605@gmail.com">duyvhph52605@gmail.com </a></li>
+                                        <li><i class="pe-7s-call"></i> <a href="tel:+3866466521">+386466521</a></li>
                                     </ul>
                                 </address>
                             </div>
