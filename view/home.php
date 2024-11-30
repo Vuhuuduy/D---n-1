@@ -5,6 +5,7 @@
 <main>
     <!-- backgorud  -->
     <div class="bg-image">
+        
     </div>
     <!-- end backgroud  -->
     <!-- service policy area start -->
