@@ -11,112 +11,53 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 
 
 // Controller
-require_once './Controllers/ClientSanPhamController.php'; // Hàm hỗ trợ
-require_once './Controllers/TrangChuController.php'; // Hàm hỗ trợ
+require_once './Controllers/SanPhamController.php'; // Hàm hỗ trợ
+require_once './Controllers/HomeController.php'; // Hàm hỗ trợ
+require_once './Controllers/GioHang.php'; // Hàm hỗ trợ
 
 
 // model 
-require_once './Models/ClientDanhMuc.php'; // Hàm hỗ trợ
-require_once './Models/ClientSanPham.php'; // Hàm hỗ trợ
+
+require_once './models/SanPham.php';
+require_once './models/TaiKhoan.php';
+require_once './models/GioHang.php';
+require_once './models/DonHang.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
 // điều hướng 2 
 match ($act) {
+
+    '/' => (new HomeController())->home(),
     // Trang chủ
-    // router danh muc
-    '/' => (new TrangChuController())->home(),
-    "danh-muc-mi-pham" => (new ClientDanhMucController())->danhSachDanhMuc(),
-    "form-them-danh-muc" => (new ClientDanhMucController())->formAddDanhMuc(),
-    "them-danh-muc" => (new ClientDanhMucController())->postAddDanhMuc(),
-    "form-sua-danh-muc" => (new ClientDanhMucController())->formEditDanhMuc(),
-    "sua-danh-muc" => (new ClientDanhMucController())->postEditDanhMuc(),
-    "form-xoa-danh-muc" => (new ClientDanhMucController())->deleteDanhMuc(),
-    // router san pham
-
-    "san-pham" => (new ClientSanPhamController())->danhSachSanPham(),
-    "form-them-san-pham" => (new ClientSanPhamController())->formAddSanPham(),
-    "them-san-pham" => (new ClientSanPhamController())->postAddSanPham(),
-    "form-sua-san-pham" => (new ClientSanPhamController())->formEditSanPham(),
-    "sua-san-pham" => (new ClientSanPhamController())->postEditSanPham(),
-    "form-xoa-san-pham" => (new ClientSanPhamController())->deleteSanPham(),
-    "sua-album-anh-san-pham" => (new ClientSanPhamController())->postEditAnhSanPham(),
-    "chi-tiet-san-pham" => (new ClientSanPhamController())->chiTietSanPham(),
-
-    // r;outer don hang
-
-    "don-hang" => (new ClientDonHangController())->danhSachDonHang(),
-    "form-sua-don-hang" => (new ClientDonHangController())->formEditDonHang(),
-    "sua-don-hang" => (new ClientDonHangController())->postEditDonHang(),
-    // "xoa-don-hang" => (new ClientDonHangController())->deleteDonHang(),
-    "chi-tiet-don-hang" => (new ClientSanPhamController())->detailDonHang(),
+    'chi-tiet-san-pham' => (new HomeController())->chitietSanPham(),
+    'lien-he' => (new HomeController())->lienHe(),
+    'gioi-thieu' => (new HomeController())->gioiThieu(),
+    'search' => (new HomeController())->timKiem(),
 
 
-    //  router tai khoan quan tri
-    'list-tai-khoan-quan-tri' => (new ClientTaiKhoanController())->danhSachQuanTri(),
-    'form-them-quan-tri' => (new ClientTaiKhoanController())->formAddQuanTri(),
-    'them-quan-tri' => (new ClientTaiKhoanController())->postAddQuanTri(),
-    'form-sua-quan-tri' => (new ClientTaiKhoanController())->formEditQuanTri(),
-    'sua-quan-tri' => (new ClientTaiKhoanController())->postEditQuanTri(),
-    'reset-pass' => (new ClientTaiKhoanController())->resetPassword(),
+    // Giỏ hàng ,đơn hàng
+    'them-gio-hang' => (new GioHangDonHangController())->addGioHang(),
+    'gio-hang' => (new GioHangDonHangController())->gioHang(),
+    'thanh-toan' => (new GioHangDonHangController())->thanhToan(),
+    'xu-ly-thanh-toan' => (new GioHangDonHangController())->postThanhToan(),
+    'xoa-san-pham-gio-hang' => (new GioHangDonHangController())->xoaSp(),
+    'da-dat-hang' => (new HomeController())->daDatHang(),
 
-    //  router tai khoan khách hang
-    'list-tai-khoan-khach-hang' => (new ClientTaiKhoanController())->danhSachKhachHang(),
-    'form-sua-khach-hang' => (new ClientTaiKhoanController())->formEditKhachHang(),
-    'sua-khach-hang' => (new ClientTaiKhoanController())->postEditKhachHang(),
-    'chi-tiet-khach-hang' => (new ClientTaiKhoanController())->detailKhachHang(),
-    'sua-anh-tai-khoan' => (new ClientTaiKhoanController)->suaAnhTaiKhoanClient(),
-    'sua-thong-tin-ca-nhan-quan-tri' => (new ClientTaiKhoanController)->postEditCaNhanQuanTri(),
-    'sua-mat-khau-ca-nhan-quan-tri' => (new ClientTaiKhoanController)->postEditMatKhauCaNhan(),
+    //authe
+    'login' => (new HomeController())->formLogin(),
+    'check-login' => (new HomeController())->postlogin(),
+    'logout' => (new HomeController())->logout(),
+    'quen-mat-khau' => (new HomeController())->quenMatKhau(),
+    'lay-mat-khau' => (new HomeController())->layMatKhau(),
 
-    // router auth9
-    'login-Client' => (new ClientTaiKhoanController())->formLogin(),
-    'check-login-Client' => (new ClientTaiKhoanController())->login(),
-    'logout-Client' => (new ClientTaiKhoanController())->logout(),
 
-    // router quản lý tài khoản  cá nhân(quản trị)
-    'form-sua-thong-tin-ca-nhan-quan-tri' => (new ClientTaiKhoanController())->formEditCaNhanQuanTri(),
-    // 'sua-thong-tin-ca-nhan-quan-tri' => (new ClientTaiKhoanController())->postEditCaNhanQuanTri(),
+    'form-dang-ky' => (new HomeController())->formDangKy(),
+    'dang-ky' => (new HomeController())->dangKy(),
+    'tai-khoan' => (new HomeController())->taiKhoan(),
+    'sua-mat-khau-ca-nhan' => (new HomeController())->postEditMatKhauCaNhan(),
 
-    'sua-mat-khau-ca-nhan-quan-tri' => (new ClientTaiKhoanController())->postEditMatKhauCaNhan(),
+    //sanpham
+    // "san-pham" => (new HomeController())->danhSachSanPham(),
+    'san-pham-theo-danh-muc' => (new HomeController())->sanPhamDanhMuc(),
 };
-// Điều hướng
-// if (isset($_GET['act']) && $_GET['act'] != "") {
-//     switch ($_GET['act']) {
-//         case 'news':
-//             include_once 'view/news.php';
-//             break;
-//         case 'aoxuanhe':
-//             include_once 'view/aoxuanhe.php';
-//             break;
-//         case 'chitietsanpham':
-//             include_once 'view/chitietsp.php';
-//             break;
-//         case 'phukien':
-//             include_once 'view/phukien.php';
-//             break;
-//         case 'quan':
-//             include_once 'view/quan.php';
-//             break;
-//         case 'sanpham':
-//             include_once 'view/sanpham.php';
-//             break;
-//         case 'giohang':
-//             include_once 'view/giohang.php';
-//             break;
-//         case 'thongtinkhachhang':
-//             include_once 'view/thongtinkhachhang.php';
-//             break;
-//         case 'dangki':
-//             include_once 'view/dangky.php';
-//             break;
-//         case 'dangnhap':
-//             include_once 'view/dangnhap.php';
-//             break;
-//         default:
-//             include_once 'view/sanpham/ListSanPham.php';
-//             break;
-//     }
-// } else {
-//     include_once 'view/sanpham/ListSanPham.php';
-// }

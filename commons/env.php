@@ -4,11 +4,11 @@
 // Khai báo dưới dạng HẰNG SỐ để không phải dùng $GLOBALS
 // Đường dẫn vào client
 
-define('BASE_URL', '');
+define('BASE_URL', 'http://localhost/DuAn');
 
 // Đường dẫn vào admin
 
-define('BASE_URL_ADMIN', '');
+define('BASE_URL_ADMIN', 'http://localhost/DuAn/admin');
 
 define('DB_HOST', 'localhost');
 define('DB_PORT', 3306);

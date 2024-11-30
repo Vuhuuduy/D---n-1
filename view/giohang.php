@@ -1,147 +1,141 @@
-  <main>
-      <div class="title title-trangchu">
-          <ul class="d-flex list-unstyled text-dark">
-              <li><a href="#" class="text-dark">
-                      <p class="ml-2">Trang chủ /</p>
-                  </a></li>
-              <li><a href="#" class="text-dark">
-                      <p class="ml-2">Giỏ hàng</p>
-                  </a></li>
-          </ul>
-      </div>
-      <div class="container-main">
-          <h4>Giỏ hàng của bạn</h4>
-          <div class="row">
-              <!-- Danh sách sản phẩm -->
-              <div class="col-lg-8">
-                  <!-- Sản phẩm -->
-                  <div class="row border-bottom py-3 align-items-center">
-                      <div class="col-md-2">
-                          <img src="img/gai-xinh-han-quoc-2-1.jpg" alt="Sản phẩm" class="img-fluid">
-                      </div>
-                      <div class="col-md-4">
-                          <p>Áo Sơ Mi Cộc Regular L.3.4945 - Be9 - M</p>
-                          <button class="btn btn-link text-danger p-0">Xóa</button>
-                      </div>
-                      <div class="col-md-2 text-center">
-                          <button class="btn btn-outline-secondary">-</button>
-                          <span class="btn btn">5</span>
-                          <button class="btn btn-outline-secondary">+</button>
-                      </div>
-                      <div class="col-md-2 text-end ">
-                          <p>69.000đ</p>
-                      </div>
-                  </div>
-                  <div class="row border-bottom py-3 align-items-center">
-                      <div class="col-md-2">
-                          <img src="img/gai-xinh-han-quoc-2-1.jpg" alt="Sản phẩm" class="img-fluid">
-                      </div>
-                      <div class="col-md-4">
-                          <p>Áo Sơ Mi Cộc Regular L.3.4945 - Be9 - M</p>
-                          <button class="btn btn-link text-danger p-0">Xóa</button>
-                      </div>
-                      <div class="col-md-2 text-center">
-                          <button class="btn btn-outline-secondary">-</button>
-                          <span class="mx-2">5</span>
-                          <button class="btn btn-outline-secondary">+</button>
-                      </div>
-                      <div class="col-md-2 text-end">
-                          <p>69.000đ</p>
-                      </div>
-                  </div>
-                  <div class="row border-bottom py-3 align-items-center">
-                      <div class="col-md-2">
-                          <img src="img/gai-xinh-han-quoc-2-1.jpg" alt="Sản phẩm" class="img-fluid">
-                      </div>
-                      <div class="col-md-4">
-                          <p>Áo Sơ Mi Cộc Regular L.3.4945 - Be9 - M</p>
-                          <button class="btn btn-link text-danger p-0">Xóa</button>
-                      </div>
-                      <div class="col-md-2 text-center">
-                          <button class="btn btn-outline-secondary">-</button>
-                          <span class="mx-2">5</span>
-                          <button class="btn btn-outline-secondary">+</button>
-                      </div>
-                      <div class="col-md-2 text-end">
-                          <p>69.000đ</p>
-                      </div>
-                  </div>
-                  <div class="row border-bottom py-3 align-items-center">
-                      <div class="col-md-2">
-                          <img src="img/gai-xinh-han-quoc-2-1.jpg" alt="Sản phẩm" class="img-fluid">
-                      </div>
-                      <div class="col-md-4">
-                          <p>Áo Sơ Mi Cộc Regular L.3.4945 - Be9 - M</p>
-                          <button class="btn btn-link text-danger p-0">Xóa</button>
-                      </div>
-                      <div class="col-md-2 text-center">
-                          <button class="btn btn-outline-secondary">-</button>
-                          <span class="mx-2">5</span>
-                          <button class="btn btn-outline-secondary">+</button>
-                      </div>
-                      <div class="col-md-2 text-end">
-                          <p>69.000đ</p>
-                      </div>
-                  </div>
-                  <!-- Nhân bản sản phẩm nếu cần -->
-                  <div class="row border-bottom py-3 align-items-center">
-                      <!-- Tương tự sản phẩm trên -->
-                  </div>
-              </div>
+<?php require_once 'layout/header.php'; ?>
+<?php require_once 'layout/menu.php'; ?>
 
-              <!-- Tóm tắt đơn hàng -->
-              <div class="col-lg-4">
-                  <div class="card">
-                      <div class="card-body">
-                          <h5 class="card-title">Tóm tắt đơn hàng</h5>
-                          <p>Chưa bao gồm phí vận chuyển:</p>
-                          <h5>Tổng tiền: <span class="text-danger">500.000đ</span></h5>
-                          <button class="btn btn-dark w-100 my-2">Tiến hành đặt hàng</button>
-                          <button class="btn btn-outline-dark w-100">Mua thêm sản phẩm</button>
-                      </div>
-                  </div>
-                  <div class="mt-3">
-                      <p><i class="bi bi-truck"></i> Giao hàng nội thành trong 24 giờ</p>
-                      <p><i class="bi bi-arrow-repeat"></i> Đổi hàng trong 30 ngày</p>
-                      <p><i class="bi bi-telephone"></i> Tổng đài bán hàng 096728.4444</p>
-                  </div>
-              </div>
-          </div>
 
-          <p><strong>Sản phẩm bạn có thể yêu thích</strong></p>
-          <div class="row mb-4">
-              <div class="col-md-3 text-center">
-                  <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                      class="img-fluid" alt="Sản phẩm 1">
-                  <h5 class="mt-2">Tên sản phẩm 1</h5>
-                  <p>Giá: 100.000đ</p>
-              </div>
-              <div class="col-md-3 text-center">
-                  <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                      class="img-fluid" alt="Sản phẩm 2">
-                  <h5 class="mt-2">Tên sản phẩm 2</h5>
-                  <p>Giá: 150.000đ</p>
-              </div>
-              <div class="col-md-3 text-center">
-                  <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                      class="img-fluid" alt="Sản phẩm 3">
-                  <h5 class="mt-2">Tên sản phẩm 3</h5>
-                  <p>Giá: 200.000đ</p>
-              </div>
-              <div class="col-md-3 text-center">
-                  <img src="https://saigonsneaker.com/wp-content/uploads/2021/10/Hoodie-Basic-Xanh-Duong-9.jpg"
-                      class="img-fluid" alt="Sản phẩm 4">
-                  <h5 class="mt-2">Tên sản phẩm 4</h5>
-                  <p>Giá: 250.000đ</p>
-              </div>
-          </div>
+<div class="cart-main-wrapper section-padding">
+    <main>
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>"><i class="fa fa-home"></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
 
-      </div>
+        <!-- cart main wrapper start -->
+        <div class="cart-main-wrapper section-padding">
+            <div class="container">
+                <div class="section-bg-color">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- Cart Table Area -->
+                            <div class="cart-table table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="pro-thumbnail">Ảnh sản phẩm</th>
+                                            <th class="pro-title">Tên sản phẩm</th>
+                                            <th class="pro-price">Giá</th>
+                                            <th class="pro-quantity">Số lượng</th>
+                                            <th class="pro-subtotal">Tổng tiền</th>
+                                            <th class="pro-remove">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-  </main>
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+                                        <?php
+                                        $tongGioHang = 0;
+
+                                        foreach ($chiTietGioHang as $key => $sanPham) {
+                                        ?>
+                                            <form action="<?= BASE_URL . '?act=xoa-san-pham-gio-hang' ?>" method="POST">
+                                                <input type="hidden" name="chi_tiet_gio_hang_id" value="<?= $sanPham['id'] ?>">
+                                                <tr>
+                                                    <td class="pro-thumbnail"><img class="img-fluid" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="Product" /></a></td>
+                                                    <td class="pro-title"><?= $sanPham['ten_san_pham'] ?></td>
+                                                    <td class="pro-price"><span>
+                                                            <?php if ($sanPham['gia_khuyen_mai'] > 0) { ?>
+                                                                <?= formatPrice($sanPham['gia_khuyen_mai']) . ' đ' ?>
+                                                            <?php } else { ?>
+                                                                <?= formatPrice($sanPham['gia_san_pham']) . ' đ' ?>
+                                                            <?php } ?>
+                                                        </span></td>
+                                                    <td class="pro-quantity">
+                                                        <div class="pro-qty"><input type="text" value="<?= $sanPham['so_luong'] ?>"></div>
+                                                    </td>
+                                                    <td class="pro-subtotal"><span>
+                                                            <?php
+                                                            $tongTien = 0;
+                                                            if ($sanPham['gia_khuyen_mai'] > 0) {
+                                                                $tongTien =  $sanPham['gia_khuyen_mai'] * $sanPham['so_luong'];
+                                                            } else {
+                                                                $tongTien = $sanPham['gia_san_pham'] * $sanPham['so_luong'];
+                                                            }
+                                                            $tongGioHang += $tongTien;
+                                                            echo formatPrice($tongTien) . 'đ';
+                                                            ?>
+                                                        </span></td>
+                                                    <td class="pro-remove"><button type="submit"><i class="fa fa-trash-o"></i></button></td>
+                                                </tr>
+                                            </form>
+                                        <?php
+                                        } ?>
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Cart Update Option -->
+                            <div class="cart-update-option d-block d-md-flex justify-content-between">
+                                <div class="apply-coupon-wrapper">
+                                    <form action="#" method="post" class=" d-block d-md-flex">
+                                        <input type="text" placeholder="Enter Your Coupon Code" required="">
+                                        <button class="btn btn-sqr">Apply Coupon</button>
+                                    </form>
+                                </div>
+                                <div class="cart-update">
+                                    <a href="#" class="btn btn-sqr">Update Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5 ml-auto">
+                            <!-- Cart Calculation Area -->
+                            <div class="cart-calculator-wrapper">
+                                <div class="cart-calculate-items">
+                                    <h6>Tổng đơn hàng</h6>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <td>Tổng tiền sản phẩm</td>
+                                                <td><?= formatPrice($tongGioHang) . 'đ' ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Vận chuyển</td>
+                                                <td>30.000 đ</td>
+                                            </tr>
+                                            <tr class="total">
+                                                <td>Tổng thanh toán</td>
+                                                <td class="total-amount"><?= formatPrice($tongGioHang + 30000) ?></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <a href="<?= BASE_URL . '?act=thanh-toan' ?>" class="btn btn-sqr d-block">Tiến hành đặt hàng</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cart main wrapper end -->
+    </main>
+</div>
+<!-- cart main wrapper end -->
+
+
+<?php require_once 'layout/footer.php'; ?>
