@@ -13,6 +13,7 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 // Controller
 require_once './Controllers/SanPhamController.php'; // Hàm hỗ trợ
 require_once './Controllers/HomeController.php'; // Hàm hỗ trợ
+require_once './Controllers/GioHang.php';
 
 
 // model 

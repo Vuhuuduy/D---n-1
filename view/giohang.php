@@ -1,4 +1,5 @@
 <?php require_once 'layout/header.php'; ?>
+<?php require_once 'layout/menu.php'; ?>
 
 
 <div class="cart-main-wrapper section-padding">
