@@ -4,8 +4,11 @@
 <!-- Main sản phẩm  -->
 <main>
     <!-- backgorud  -->
-    <div class="bg-image">
-        
+
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img src=" https://png.pngtree.com/template/20210915/ourmid/pngtree-autumn-and-winter-new-fashion-childrens-clothing-banner-image_609875.jpg" alt="">
+
     </div>
     <!-- end backgroud  -->
     <!-- service policy area start -->
@@ -62,7 +65,11 @@
     <!-- service policy area end -->
 
 
+
+    <section class="product-area section-padding">
+
 <section class="product-area section-padding">
+
         <div class="container">
             <div class="row">
                 <div class="col-12">
