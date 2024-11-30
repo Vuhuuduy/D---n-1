@@ -13,7 +13,7 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 // Controller
 require_once './Controllers/SanPhamController.php'; // Hàm hỗ trợ
 require_once './Controllers/HomeController.php'; // Hàm hỗ trợ
-require_once './Controllers/GioHang.php'; // Hàm hỗ trợ
+require_once './Controllers/GioHang.php';
 
 
 // model 
@@ -27,12 +27,12 @@ require_once './models/DonHang.php';
 $act = $_GET['act'] ?? '/';
 // điều hướng 2 
 match ($act) {
-
+    
     '/' => (new HomeController())->home(),
     // Trang chủ
-    'chi-tiet-san-pham' => (new HomeController())->chitietSanPham(),
-    'lien-he' => (new HomeController())->lienHe(),
-    'gioi-thieu' => (new HomeController())->gioiThieu(),
+    'chi-tiet-san-pham'=> (new HomeController())->chitietSanPham(),
+    'lien-he' =>(new HomeController())->lienHe(),
+   'gioi-thieu' =>(new HomeController())->gioiThieu(),
     'search' => (new HomeController())->timKiem(),
 
 
@@ -59,5 +59,5 @@ match ($act) {
 
     //sanpham
     // "san-pham" => (new HomeController())->danhSachSanPham(),
-    'san-pham-theo-danh-muc' => (new HomeController())->sanPhamDanhMuc(),
+    'san-pham-theo-danh-muc' =>(new HomeController())->sanPhamDanhMuc(),
 };
