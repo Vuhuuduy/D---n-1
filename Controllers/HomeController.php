@@ -26,7 +26,7 @@ class HomeController
         $listSanPham = $this->modelSanPham->getAllSanPham();
 
 
-        require_once('./view/home.php');
+        require_once('./views/home.php');
     }
      public function timKiem()
     {
@@ -50,7 +50,7 @@ class HomeController
             $listSanPhamTimKiem = $this->modelSanPham->search(htmlspecialchars($keyword));
 
             // Hiển thị trang tìm kiếm
-            require_once './view/timKiemSp.php';
+            require_once './views/timKiemSp.php';
         } else {
             // Chuyển hướng về trang chủ nếu không phải phương thức POST
             header("Location: " . BASE_URL );
@@ -69,12 +69,12 @@ class HomeController
 
             $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
             //    var_dump($listDanhMuc);die();
-            require_once './view/sanPhamTheoDanhMuc.php';
+            require_once './views/sanPhamTheoDanhMuc.php';
         } else {
             $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
             $listSanPham = $this->modelSanPham->getAllSanPham();
             $listtop10 = $this->modelSanPham->top10();
-            require_once './view/sanPham.php';
+            require_once './views/sanPham.php';
         }
     }
     
@@ -91,7 +91,7 @@ class HomeController
         // var_dump($listSanPhamCungDanhMuc);die();
 
         if (isset($sanPham)) {
-            require_once './view/detailSanPham.php';
+            require_once './views/detailSanPham.php';
         } else {
             header("Location: " . BASE_URL);
             exit();
@@ -125,7 +125,7 @@ class HomeController
         } else {
             header('Location:' . BASE_URL . '?act=login');
         }
-        require_once './view/daDatHang.php';
+        require_once './views/daDatHang.php';
         deleteSessionErrors();
     }
 
@@ -141,7 +141,7 @@ class HomeController
             header('Location:' . BASE_URL);
             exit();
         }
-        require_once './view/auth/formLogin.php';
+        require_once './views/auth/formLogin.php';
         deleteSessionErrors();
     }
     public function postlogin()
@@ -185,7 +185,7 @@ class HomeController
         }
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
 
-        require_once('./view/auth/formDangKy.php');
+        require_once('./views/auth/formDangKy.php');
         deleteSessionErrors();
     }
 
@@ -291,14 +291,14 @@ class HomeController
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
 
 
-        require_once './view/lienHe.php';
+        require_once './views/lienHe.php';
     }
     public function gioiThieu()
     {
         $listDanhMuc = $this->modelSanPham->getAllDanhMuc();
 
 
-        require_once './view/gioiThieu.php';
+        require_once './views/gioiThieu.php';
     }
    
 
@@ -311,7 +311,7 @@ class HomeController
         $thongTin = $this->modelTaiKhoan->thongTinTaiKhoan($tai_khoan_id);
         // var_dump($thongTin);die();
 
-        require_once './view/quenMatKhau.php';
+        require_once './views/quenMatKhau.php';
         deleteSessionErrors();
     }
 
@@ -346,7 +346,7 @@ class HomeController
         $email = $_SESSION['user_client'];
         $thongTin = $this->modelTaiKhoan->getTaiKhoanFromEmail($email);
 
-        require_once './view/taikhoan.php';
+        require_once './views/taikhoan.php';
         deleteSessionErrors();
     }
 

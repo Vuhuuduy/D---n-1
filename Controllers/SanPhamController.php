@@ -42,6 +42,6 @@ class SanPhamController
         // $totalPages = ceil($totalProducts / $limit);
 
         // // Truyền dữ liệu vào view
-        require_once "./view/sanpham/ListSanPham.php";
+        require_once "./views/sanpham/ListSanPham.php";
     }
 }

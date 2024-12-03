@@ -78,7 +78,7 @@ class GioHangDonHangController
                 $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
             }
 
-            require_once './view/gioHang.php';
+            require_once './views/gioHang.php';
         } else {
             header('Location:' . BASE_URL . '?act=login');
         }
@@ -103,7 +103,7 @@ class GioHangDonHangController
                 $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
             }
 
-            require_once './view/thanhToan.php';
+            require_once './views/thanhToan.php';
         } else {
             header('Location:' . BASE_URL . '?act=login');
         }
