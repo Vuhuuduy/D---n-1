@@ -298,5 +298,105 @@ class AdminSanPhamController
             exit();
         }
     }
+    
+    public function deleteSanPham()
+    {
+        $id = $_GET['id_san_pham'];
+        $sanPham = $this->modelSanPham->getDetailSanPham($id);
+
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        if ($sanPham) {
+            $this->modelSanPham->destroySanPham($id);
+            deleteFile($sanPham)['hinh_anh'];
+        }
+        if ($listAnhSanPham) {
+            foreach ($listAnhSanPham as $key => $anhSP) {
+                deleteFile($anhSP['link_hinh_anh']);
+                $this->modelSanPham->destroyAnhSanPham($anhSP['id']);
+            }
+        }
+        header("Location: " . BASE_URL_ADMIN . '?act=san-pham');
+        exit();
+    }
+    public function detailSanPham()
+    {
+        // hiển thị form nhập
+        // Lấy ra thông tin của sản phẩm cần sửa
+        $id = $_GET['id_san_pham'];
+        $sanpham  = $this->modelSanPham->getDetailSanPham($id);
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        $listBinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id);
+        if (isset($sanpham)) {
+            require_once './views/sanpham/detailSanPham.php';
+        } else {
+            header("Location: " . BASE_URL_ADMIN . '?act=san-pham');
+            exit();
+        }
+    }
+
+    public function updateTrangThaiBinhLuan()
+    {
+        //  var_dump($_POST);die();
+        $id_binh_luan = $_POST['id_binh_luan'];
+        $name_view = $_POST['name_view'];
+
+
+        $binhLuan = $this->modelSanPham->getDetailBinhLuan($id_binh_luan);
+
+        if ($binhLuan) {
+            $trang_thai_update = '';
+            if ($binhLuan['trang_thai'] == 1) {
+                $trang_thai_update = 2;
+            } else {
+                $trang_thai_update = 1;
+            }
+            $status = $this->modelSanPham->updateTrangThaiBinhLuan($id_binh_luan, $trang_thai_update);
+
+            if ($status) {
+                if ($name_view == 'detail_khach') {
+                    header('Location:' . BASE_URL_ADMIN . '?act=chi-tiet-khach-hang&id_khach_hang=' . $binhLuan['tai_khoan_id']);
+                    // exit();
+                } else {
+                    header('Location:' . BASE_URL_ADMIN . '?act=chi-tiet-san-pham&id_san_pham=' . $binhLuan['san_pham_id']);
+                }
+            }
+        }
+    }
+
+
+    public function xoaBinhLuan()
+    {
+        //  var_dump($_POST);die();
+        $id_binh_luan = $_POST['id_binh_luan'];
+        // $name_view = $_POST['name_view'];
+        $xoa = $this->modelSanPham->deleteBinhLuan($id_binh_luan);
+        // var_dump($xoa);die();
+
+
+        $binhLuan = $this->modelSanPham->getDetailBinhLuan($id_binh_luan);
+
+        // die();
+        // $status = $this->modelSanPham->updateTrangThaiBinhLuan($id_binh_luan, $trang_thai_update);
+        header('Location:' . BASE_URL_ADMIN . '?act=chi-tiet-san-pham&id_san_pham=' . $binhLuan['san_pham_id']);
+    }
+
+
+    public function xoaBinhLuanKhachHang()
+    {
+        //  var_dump($_POST);die();
+        $id_binh_luan = $_POST['id_binh_luan'];
+        $tai_khoan_id = $_POST['tai_khoan_id'];
+        // var_dump($tai_khoan_id);die();
+        // $name_view = $_POST['name_view'];
+        $xoa = $this->modelSanPham->deleteBinhLuan($id_binh_luan);
+        // var_dump($xoa);die();
+
+
+        $binhLuan = $this->modelSanPham->getDetailBinhLuan($id_binh_luan);
+
+        // die();
+        // $status = $this->modelSanPham->updateTrangThaiBinhLuan($id_binh_luan, $trang_thai_update);
+        header("Location: " . BASE_URL_ADMIN . '?act=chi-tiet-khach-hang&id_khach_hang=' . $tai_khoan_id);
+    }
 }
 ?>
