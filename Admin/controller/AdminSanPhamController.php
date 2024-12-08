@@ -298,7 +298,7 @@ class AdminSanPhamController
             exit();
         }
     }
-    
+
     public function deleteSanPham()
     {
         $id = $_GET['id_san_pham'];
@@ -399,4 +399,3 @@ class AdminSanPhamController
         header("Location: " . BASE_URL_ADMIN . '?act=chi-tiet-khach-hang&id_khach_hang=' . $tai_khoan_id);
     }
 }
-?>
