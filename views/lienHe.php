@@ -89,7 +89,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $database = "duan";
+        $database = "duan2";
         
         try {
   
@@ -109,7 +109,8 @@
 
         <div class="container1">
             <h1>Tin Tức</h1>
-            <div class="breadcrumb">/-strong/-heart:>:o:-((:-h <a href="#">Trang chủ</a> / <span>Tin Tức</span>
+            <div class="breadcrumb">
+                <a href="#">Trang chủ</a> / <span>Tin Tức</span>
             </div>
 
             <div class="row">

@@ -148,8 +148,7 @@ class TaiKhoan{
 
                                         ";
             $stmt = $this->conn->prepare($sql);
-            // var_dump($sql);
-            // die();
+            //  var_dump($sql);die();
             $stmt->execute(
                 [
                     ':ho_ten' => $ho_ten,
@@ -164,7 +163,7 @@ class TaiKhoan{
             );
 
             // Kiểm tra lại giá trị truyền vào
-
+           
 
             // Lấy id sản phẩm vừa thêm
             return true;
