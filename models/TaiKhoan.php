@@ -21,19 +21,20 @@ class TaiKhoan{
             }
 
             // Kiểm tra mật khẩu
-            if (!password_verify($mat_khau, $user['mat_khau'])) {
+            if ($mat_khau !== $user['mat_khau']) {
                 return 'Mật khẩu không đúng';
             }
 
+
             // Kiểm tra vai trò
-            if ($user['chuc_vu_id'] == 2) { // Client 
+            if ($user['chuc_vu_id'] == 2) { 
                 if ($user['trang_thai'] == 1) {
                     return $user['email']; // Đăng nhập thành công
                 } else {
                     return 'Tài khoản bị cấm';
                 }
             } else {
-                return 'Tài khoản không có quyền đăng nhập client';
+                return 'Tài khoản không có quyền đăng nhập admin';
             }
         } catch (Exception $e) {
             echo "Lỗi: " . $e->getMessage();
@@ -129,8 +130,8 @@ class TaiKhoan{
         }
     }
 
-
-    public function updateKhachHang($id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai)
+   
+    public function updateTaiKhoan($id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai)
     {
 
         try {
@@ -147,7 +148,8 @@ class TaiKhoan{
 
                                         ";
             $stmt = $this->conn->prepare($sql);
-            //  var_dump($sql);die();
+            // var_dump($sql);
+            // die();
             $stmt->execute(
                 [
                     ':ho_ten' => $ho_ten,
@@ -161,8 +163,30 @@ class TaiKhoan{
                 ]
             );
 
+            // Kiểm tra lại giá trị truyền vào
+
 
             // Lấy id sản phẩm vừa thêm
+            return true;
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
+    public function binhLuan($tai_khoan_id, $san_pham_id, $noi_dung, $ngay_dang)
+    {
+        try {
+            $sql = "INSERT INTO binh_luans (tai_khoan_id,san_pham_id,noi_dung,ngay_dang) VALUES (:tai_khoan_id, :san_pham_id,:noi_dung,:ngay_dang)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(
+                [
+                    ':tai_khoan_id' => $tai_khoan_id,
+                    ':san_pham_id' => $san_pham_id,
+                    ':noi_dung' => $noi_dung,
+                    ':ngay_dang' => $ngay_dang,
+
+                ]
+            );
+
             return true;
         } catch (Exception $e) {
             echo "Lỗi: " . $e->getMessage();
