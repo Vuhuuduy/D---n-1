@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../../commons/env.php';
 
 // Bắt đầu session (nếu cần)
-session_start();
+// session_start();
 ?>
 
 
@@ -122,6 +122,7 @@ body:before {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Đổ bóng nhẹ */
     max-width: 400px;
     width: 100%;
+    
 }
 
 .registration-container h2 {

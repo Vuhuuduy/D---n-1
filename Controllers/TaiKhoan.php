@@ -219,6 +219,63 @@ class TaiKhoanController
     }
 
 
+    public function suaThongTinCaNhan()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $tai_khoan_id = $_POST['tai_khoan_id'];
+            $ho_ten = $_POST['ho_ten'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $so_dien_thoai = $_POST['so_dien_thoai'] ?? '';
+            $dia_chi = $_POST['dia_chi'] ?? '';
+            $ngay_sinh = $_POST['ngay_sinh'] ?? ''; // Lấy ngày sinh từ form, nếu không có thì gán giá trị mặc định là ''
+            $gioi_tinh = $_POST['gioi_tinh'] ?? ''; // Lấy giới tính từ form
+            $trang_thai = $_POST['trang_thai'] ?? 1; // Lấy trạng thái từ form
+            $id = $_POST['tai_khoan_id'] ?? '';
+
+            // Kiểm tra lỗi
+            $errors = [];
+            if (empty($ho_ten)) {
+                $errors['ho_ten'] = 'Họ tên không được để trống';
+            }
+            if (empty($so_dien_thoai)) {
+                $errors['so_dien_thoai'] = 'Số điện thoại không được để trống';
+            }
+            if (empty($dia_chi)) {
+                $errors['dia_chi'] = 'Địa chỉ không được để trống';
+            }
+            if (empty($email)) {
+                $errors['email'] = 'Email không được để trống';
+            }
+
+            // var_dump($_POST);
+            // die();
+            // var_dump($_SESSION);
+            // die();          
+            //   var_dump($ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai, $id);
+            // die();  
+            if (empty($errors)) {
+                // Nếu không có lỗi, gọi model để cập nhật thông tin
+                $status = $this->modelTaiKhoan->updateTaiKhoan($tai_khoan_id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai);
+                // var_dump($so_dien_thoai);
+                // die();
+                if ($status) {
+                    $_SESSION['successTt'] = "Đã đổi thông tin thành công";
+                    $_SESSION['flash'] = true;
+                    header("Location: " . BASE_URL . '?act=tai-khoan');
+                    exit();
+                } else {
+                    $_SESSION['errors']['update'] = 'Cập nhật thất bại. Vui lòng thử lại.';
+                }
+            } else {
+                $_SESSION['errors'] = $errors;
+            }
+            header("Location: " . BASE_URL . '?act=tai-khoan');
+            exit();
+        }
+    }
+
     public function doiMatKhau()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -277,59 +334,4 @@ class TaiKhoanController
             exit();
         }
     }
-    public function suaThongTinCaNhan()
-    {
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $tai_khoan_id = $_POST['tai_khoan_id'];
-            $ho_ten = $_POST['ho_ten'] ?? '';
-            $email = $_POST['email'] ?? '';
-            $so_dien_thoai = $_POST['so_dien_thoai'] ?? '';
-            $dia_chi = $_POST['dia_chi'] ?? '';
-            $ngay_sinh = $_POST['ngay_sinh'] ?? ''; // Lấy ngày sinh từ form, nếu không có thì gán giá trị mặc định là ''
-            $gioi_tinh = $_POST['gioi_tinh'] ?? ''; // Lấy giới tính từ form
-            $trang_thai = $_POST['trang_thai'] ?? 1; // Lấy trạng thái từ form
-$id = $_POST['tai_khoan_id'] ?? '';
-
-            // Kiểm tra lỗi
-            $errors = [];
-            if (empty($ho_ten)) {
-                $errors['ho_ten'] = 'Họ tên không được để trống';
-            }
-            if (empty($so_dien_thoai)) {
-                $errors['so_dien_thoai'] = 'Số điện thoại không được để trống';
-            }
-            if (empty($dia_chi)) {
-                $errors['dia_chi'] = 'Địa chỉ không được để trống';
-            }
-            if (empty($email)) {
-                $errors['email'] = 'Email không được để trống';
-            }
-
-            // var_dump($_POST);
-            // die();
-            // var_dump($_SESSION);
-            // die();          
-            //   var_dump($ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai, $id);
-            // die();  
-            if (empty($errors)) {
-                // Nếu không có lỗi, gọi model để cập nhật thông tin
-                $status = $this->modelTaiKhoan->updateTaiKhoan($tai_khoan_id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai);
-                // var_dump($so_dien_thoai);
-                // die();
-                if ($status) {
-                    $_SESSION['successTt'] = "Đã đổi thông tin thành công";
-                    $_SESSION['flash'] = true;
-                    header("Location: " . BASE_URL . '?act=tai-khoan');
-                    exit();
-                } else {
-                    $_SESSION['errors']['update'] = 'Cập nhật thất bại. Vui lòng thử lại.';
-                }
-            } else {
-                $_SESSION['errors'] = $errors;
-            }
-            header("Location: " . BASE_URL . '?act=tai-khoan');
-            exit();
-        }
-    }}
+}
